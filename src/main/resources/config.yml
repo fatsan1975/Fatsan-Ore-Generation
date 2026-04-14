@@ -1,0 +1,65 @@
+# ================================================================
+# Fatsan Ore Generation - config.yml
+# Fatsan Ore Generation - genel ayarlar
+# ================================================================
+
+# Active language file.
+# Aktif dil dosyasi.
+language: en_US
+
+# Enables extra diagnostics in commands and startup logs.
+# Baslangic gunlukleri ve komutlarda ekstra tani bilgisi acar.
+debug: false
+
+metrics:
+  # bStats-style metrics toggle reserved for future wiring.
+  # Gelecekteki metrik entegrasyonu icin anahtar.
+  enabled: false
+
+# Compatibility priority profile:
+# PRESERVE = safest/default, BALANCED = more aggressive tuning,
+# AGGRESSIVE = strongest ore control with more rewrite pressure.
+# Uyumluluk profili:
+# PRESERVE = en guvenli varsayilan, BALANCED = daha dengeli,
+# AGGRESSIVE = daha sert ore kontrolu.
+compatibility-mode: PRESERVE
+
+# If true, reload/startup keeps the previous good snapshot when errors exist.
+# True ise hata durumunda onceki saglam ayar korunur.
+strict-mode: false
+
+worlds:
+  # Default state for worlds not explicitly matched in worlds.yml.
+  # worlds.yml icinde acikca eslesmeyen dunyalar icin varsayilan durum.
+  default-enabled: true
+
+startup:
+  # Register already-loaded worlds during startup.
+  # Baslangicta zaten yuklu dunyalari kaydet.
+  register-loaded-worlds: true
+
+  # Also attach to future worlds through WorldInitEvent.
+  # Yeni olusturulacak dunyalara da WorldInitEvent ile baglan.
+  auto-register-new-worlds: true
+
+performance:
+  # Rewrites vanilla ores inside the target scan band before adding new veins.
+  # Hedeflenen Y bandindaki vanilla ore bloklarini once yeniden yazar.
+  scan-existing-ores: true
+
+  # Keeps a small per-biome rule cache for the hot path.
+  # Sicak yolda kucuk bir biome->rule onbellegi tutar.
+  use-biome-cache: true
+
+  # Limits noisy stack traces if a generation exception happens repeatedly.
+  # Tekrarlayan hata durumunda log spamini sinirlar.
+  max-logged-generation-errors: 3
+
+# Integration notes:
+# - FUG only affects newly generated chunks.
+# - Existing chunks are not retroactively regenerated.
+# - /reload is not required; use /fug reload instead.
+# Entegrasyon notlari:
+# - FUG sadece yeni olusan chunk'lari etkiler.
+# - Eski chunk'lar geriye donuk olarak yenilenmez.
+# - /reload yerine /fug reload kullanin.

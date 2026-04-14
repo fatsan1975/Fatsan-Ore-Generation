@@ -1,0 +1,8 @@
+# Hard Survival
+# Zor Hayatta Kalma
+global:
+  default:
+    frequency-multiplier: 0.72
+    rarity: 1.25
+    vein-size:
+      multiplier: 0.92

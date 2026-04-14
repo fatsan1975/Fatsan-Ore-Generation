@@ -1,0 +1,11 @@
+# Advanced Mode
+# Gelismis Mod
+global:
+  default:
+    frequency-multiplier: 1.0
+    rarity: 1.0
+    vein-size:
+      irregularity: 0.50
+      density: 0.88
+    realism:
+      enabled: true

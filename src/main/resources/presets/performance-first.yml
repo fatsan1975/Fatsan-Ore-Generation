@@ -1,0 +1,8 @@
+# Performance First
+# Performans Once
+global:
+  default:
+    rewrite-existing: true
+    vein-size:
+      irregularity: 0.22
+      density: 0.78

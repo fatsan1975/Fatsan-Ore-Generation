@@ -1,0 +1,9 @@
+# Realistic Geology
+# Gercekci Jeoloji
+global:
+  default:
+    realism:
+      enabled: true
+      require-valid-host: true
+      min-solid-neighbors: 5
+      tuff-context-bonus: 0.20

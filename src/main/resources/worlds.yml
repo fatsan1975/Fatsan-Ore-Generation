@@ -1,0 +1,49 @@
+# ================================================================
+# Fatsan Ore Generation - worlds.yml
+# Dunya yonetimi / World management
+# ================================================================
+
+# Explicit allow-list. Empty means "use environment + patterns + defaults".
+# Acik izin listesi. Bos ise ortam + desen + varsayilan kullanilir.
+enabled-worlds: []
+
+# Explicit deny-list. Takes priority over enabled-worlds.
+# Acik engel listesi. enabled-worlds uzerinde onceliklidir.
+disabled-worlds:
+  - example_lobby
+
+# Glob-style include patterns. Leave empty to include all.
+# Glob desenli dahil etme listesi. Bos ise hepsi dahil olur.
+include-patterns: []
+
+# Glob-style exclude patterns. Good for temporary/minigame worlds.
+# Glob desenli hariç tutma listesi. Minigame/gecici dunyalar icin iyidir.
+exclude-patterns:
+  - "minigame_*"
+
+environments:
+  NORMAL:
+    enabled: true
+    # Optional reusable profile from ores.yml -> profiles.<name>
+    # ores.yml -> profiles.<isim> altindaki tekrar kullanilabilir profil.
+    profile: overworld-default
+  NETHER:
+    enabled: true
+    profile: nether-default
+  THE_END:
+    enabled: true
+    profile: end-conservative
+
+named-worlds:
+  world:
+    enabled: true
+    profile: overworld-default
+  world_nether:
+    enabled: true
+    profile: nether-default
+  world_the_end:
+    enabled: true
+    profile: end-conservative
+  mining_world:
+    enabled: true
+    profile: hard-survival

@@ -1,0 +1,231 @@
+# ================================================================
+# Fatsan Ore Generation - ores.yml
+# Ana ore kurallari / Main ore rules
+# ================================================================
+#
+# Inheritance order / Kalitim sirasi:
+# global -> profile -> environment -> profile(named world) -> world -> biome
+#
+# Selector examples / Secici ornekleri:
+# biomes:
+#   minecraft:jagged_peaks:
+#   group:badlands:
+#   namespace:terralith:
+#   "*":
+
+global:
+  default:
+    rewrite-existing: true
+    generate-new-veins: true
+    frequency-multiplier: 1.0
+    rarity: 1.0
+    spawn-chance: 1.0
+    attempts-multiplier: 1.0
+    vein-size:
+      multiplier: 1.0
+      irregularity: 0.40
+      density: 0.84
+      large-but-rare: false
+      small-but-common: false
+    host-blocks:
+      stone-family-aware: true
+      allowed-materials: []
+      forbidden-materials: []
+    air-exposure:
+      mode: PENALIZE
+      penalty: 0.18
+      bonus: 0.0
+      max-open-faces: 2
+      min-open-faces: 0
+    realism:
+      enabled: true
+      require-valid-host: true
+      min-solid-neighbors: 4
+      mountain-bonus: 0.0
+      badlands-bonus: 0.0
+      lush-caves-bonus: 0.0
+      dripstone-caves-bonus: 0.0
+      nether-bonus: 0.0
+      end-penalty: 0.25
+      deep-dark-penalty: 0.0
+      tuff-context-bonus: 0.0
+
+  ores:
+    diamond:
+      vertical-distribution:
+        min-y: -64
+        max-y: 16
+        peak-y: -48
+        secondary-peak-y: -56
+        profile: BOTTOM_HEAVY
+      air-exposure:
+        mode: PENALIZE
+        penalty: 0.55
+        max-open-faces: 1
+    emerald:
+      vein-size:
+        large-but-rare: true
+      realism:
+        mountain-bonus: 1.05
+    ancient_debris:
+      air-exposure:
+        mode: FORBID
+        penalty: 1.0
+        max-open-faces: 0
+
+profiles:
+  overworld-default:
+    default:
+      enabled: true
+    ores:
+      coal:
+        vertical-distribution:
+          min-y: -32
+          max-y: 160
+          peak-y: 96
+          secondary-peak-y: 64
+          profile: TOP_HEAVY
+      iron:
+        realism:
+          mountain-bonus: 0.25
+          tuff-context-bonus: 0.20
+      copper:
+        realism:
+          badlands-bonus: 0.45
+          dripstone-caves-bonus: 0.30
+      gold:
+        realism:
+          badlands-bonus: 0.55
+
+  nether-default:
+    default:
+      enabled: true
+      host-blocks:
+        families: [NETHERRACK]
+      air-exposure:
+        mode: IGNORE
+    ores:
+      nether_quartz:
+        attempts: 16
+      nether_gold:
+        attempts: 10
+      ancient_debris:
+        rarity: 1.40
+        attempts: 2
+        vein-size:
+          min: 1
+          max: 3
+          large-but-rare: true
+        vertical-distribution:
+          min-y: 8
+          max-y: 22
+          peak-y: 15
+          secondary-peak-y: 119
+          profile: DUAL_PEAK
+
+  end-conservative:
+    default:
+      enabled: false
+    ores: {}
+
+  hard-survival:
+    default:
+      frequency-multiplier: 0.72
+      rarity: 1.25
+      vein-size:
+        multiplier: 0.92
+    ores:
+      diamond:
+        frequency-multiplier: 0.60
+        rarity: 1.45
+      ancient_debris:
+        frequency-multiplier: 0.75
+
+environments:
+  NORMAL:
+    ores:
+      diamond:
+        vertical-distribution:
+          min-y: -64
+          max-y: 14
+          peak-y: -48
+          secondary-peak-y: -56
+          profile: BOTTOM_HEAVY
+      emerald:
+        vertical-distribution:
+          min-y: -16
+          max-y: 256
+          peak-y: 128
+          secondary-peak-y: 96
+          profile: TRIANGULAR
+  NETHER:
+    default:
+      host-blocks:
+        families: [NETHERRACK]
+    ores:
+      ancient_debris:
+        enabled: true
+      coal:
+        enabled: false
+      iron:
+        enabled: false
+      copper:
+        enabled: false
+      gold:
+        enabled: false
+      diamond:
+        enabled: false
+      emerald:
+        enabled: false
+      redstone:
+        enabled: false
+      lapis:
+        enabled: false
+  THE_END:
+    default:
+      enabled: false
+
+worlds:
+  mining_world:
+    default:
+      frequency-multiplier: 0.85
+      rarity: 1.15
+    ores:
+      diamond:
+        frequency-multiplier: 0.70
+        rarity: 1.30
+      emerald:
+        frequency-multiplier: 1.20
+
+biomes:
+  group:badlands:
+    ores:
+      gold:
+        frequency-multiplier: 1.65
+        vein-size:
+          multiplier: 1.15
+      copper:
+        frequency-multiplier: 1.40
+  group:mountains:
+    ores:
+      emerald:
+        frequency-multiplier: 1.80
+        attempts: 6
+      iron:
+        frequency-multiplier: 1.15
+  minecraft:lush_caves:
+    ores:
+      lapis:
+        frequency-multiplier: 1.20
+      diamond:
+        air-exposure:
+          mode: PENALIZE
+          penalty: 0.65
+  minecraft:deep_dark:
+    ores:
+      diamond:
+        frequency-multiplier: 0.75
+        rarity: 1.20
+  namespace:terralith:
+    default:
+      frequency-multiplier: 0.95

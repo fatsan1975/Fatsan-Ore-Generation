@@ -1,0 +1,36 @@
+name: FatsanOreGeneration
+version: ${version}
+main: com.fatsan1975.fug.FatsanOreGenerationPlugin
+description: Ore-only world generation tuning plugin for Paper and Folia 1.21.x
+author: Fatsan1975
+prefix: FUG
+api-version: "1.21.11"
+load: STARTUP
+folia-supported: true
+commands:
+  fug:
+    description: Main command for Fatsan Ore Generation
+    usage: /fug <reload|info|debug|inspect|stats|dump-rule>
+    permission: fug.command
+permissions:
+  fug.command:
+    description: Access to /fug
+    default: op
+  fug.reload:
+    description: Reload FUG configuration
+    default: op
+  fug.info:
+    description: View FUG runtime info
+    default: op
+  fug.debug:
+    description: View FUG debug mode information
+    default: op
+  fug.inspect:
+    description: Inspect active ore rules at your position
+    default: op
+  fug.stats:
+    description: View FUG generation statistics
+    default: op
+  fug.dump-rule:
+    description: Dump a resolved ore rule for a specific world and biome
+    default: op
